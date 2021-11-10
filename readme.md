@@ -1,33 +1,39 @@
+# API SPEC
 
-Get similar questions based on given question*
+## Route: `/api/question/similar`
+**Get similar questions based on given question**
+**Method**: GET   
 
-Route: _api_question/similar
-Method: GET
-Query Params:
-	* id: String
-	* title: String
-	* description: String
-Security:
-	In header
-		* key: “Authorization”
-		* value: “Token {your api key}”
+**Query Params**:
+* id: String   
+* title: String
+* description: String
 
-Return list of object with id, title, description:
-	[ 
-		{
-			id: String,
-			title: String,
-			description: String,
-		}
-	]
+**Authentication**:    
+  * In header
+	* key: “Authorization”
+	* value: “Token {your api key}”
 
-Example:
+**Return**:    
+  * list of object with id, title, description:    
+```
+[ 
+    {
+	id: String,
+	title: String,
+	description: String,
+    }
+]
+```
+
+## Example:
 	
 ```
-curl 'localhost:8000/api/question/similar/?id=13377&title=cassava&description=cassava' -H 'Authorization: Token b67c1fbcec60cc0610e5d949c5b0775065942214'
+curl 'localhost:8000/api/question/similar/?id=13377&title=whatiscassava&description=whatiscassava' \
+-H 'Authorization: Token b67c1fbcec60cc0610e5d949c5b0775065942214'
 ```
 
-Result:
+**Result**:
 
 ```
 [
